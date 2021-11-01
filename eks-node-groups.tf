@@ -98,7 +98,6 @@ resource "aws_eks_node_group" "nodes_general" {
   instance_types = ["t2.large"]
   labels = {
     role = "nodes-general"
-    name = "nodes of eks cluster"
   }
 
   # Kubernetes version
