@@ -1,4 +1,4 @@
-# Create IAM role for EKS Node Group
+u# Create IAM role for EKS Node Group
 resource "aws_iam_role" "nodes_general" {
   # The name of the role
   name = "eks-node-group-general"
@@ -75,6 +75,9 @@ resource "aws_eks_node_group" "nodes_general" {
 
     # Minimum number of worker nodes.
     min_size = 2
+    tags = {
+    Name = "nodes of eks cluster"
+  }
   }
 
   # Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
@@ -93,9 +96,9 @@ resource "aws_eks_node_group" "nodes_general" {
 
   # List of instance types associated with the EKS Node Group
   instance_types = ["t2.large"]
-  name = "nodes of eks cluster"
   labels = {
     role = "nodes-general"
+    name = "nodes of eks cluster"
   }
 
   # Kubernetes version
