@@ -1,4 +1,4 @@
-u# Create IAM role for EKS Node Group
+# Create IAM role for EKS Node Group
 resource "aws_iam_role" "nodes_general" {
   # The name of the role
   name = "eks-node-group-general"
@@ -92,10 +92,10 @@ resource "aws_eks_node_group" "nodes_general" {
   force_update_version = false
 
   # List of instance types associated with the EKS Node Group
-  instance_types = ["t2.micro"]
-  #tags = {
-  #  Name = "nodes of eks cluster"
- # }
+  instance_types = ["t2.large"]
+  tags = {
+    Name = "nodes of eks cluster"
+  }
   labels = {
     role = "nodes-general"
   }
